@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="userbase_service (1)/Hibernate" uuid="6f53b99e-86a7-47b8-8ed7-dace2fb69940">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>Hibernate</remarks>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://192.168.1.189:3306/sc_platform_20200904_userbaseservice?serverTimezone=UTC&amp;useUnicode=true&amp;charactEncoding=utf8&amp;characterSetResults=utf8</jdbc-url>
+    </data-source>
+  </component>
+</project>

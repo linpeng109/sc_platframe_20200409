@@ -1,0 +1,62 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: GateWayService1
+  cloud:
+    consul:
+      host: 192.168.1.189
+      port: 8500
+      discovery:
+        enabled: true
+        instance-id: ${spring.application.name}
+    gateway:
+      enabled: true
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      # 通过gateway实现负载均衡和灰度部署
+      routes:
+        #通过服务注册id，“_”用以实现服务分组
+        - id: userbaseservice_1
+          #lb：表示负载均衡；服务名与在服务注册服务器上注册的名称一致
+          uri: lb://UserBaseService1
+          predicates:
+            #将path路径映射到真实的uri，并标注灰度值
+            - Path=/userbaseservice/**
+            - Weight=userbaseservice,50
+          filters:
+            #使用滤镜裁剪匹配路径
+            - StripPrefix=1
+        - id: userbaseservice_2
+          uri: lb://UserBaseService2
+          predicates:
+            - Path=/userbaseservice/**
+            - Weight=userbaseservice,50
+          filters:
+            - StripPrefix=1
+  devtools:
+    restart:
+      additional-paths: scr/main
+      enabled: true
+    livereload:
+      enabled: true
+      port: 35729
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    restart:
+      enabled: true
+    shutdown:
+      enabled: true
+    health:
+      show-details: always
+      enabled: true
+logging:
+  level:
+    root: error
+    com.cn: debug

@@ -1,0 +1,40 @@
+server:
+  port: 8900
+spring:
+  profiles:
+    active: native
+  application:
+    name: SecurityService
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main
+    livereload:
+      port: 35729
+      enabled: true
+  cloud:
+    consul:
+      host: 192.168.1.189
+      port: 8500
+      discovery:
+        enabled: true
+        instance-id: ${spring.application.name}
+feign:
+  httpclient:
+    enabled: true
+management:
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      enabled: true
+    restart:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+logging:
+  level:
+    root: error
+    com.cn: debug

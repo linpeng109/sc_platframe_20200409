@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="securityservice1" />
+        <module name="gateway_service_1" />
+        <module name="gatewayservice1" />
+        <module name="userbaseservice" />
+        <module name="userbaseservice1" />
+        <module name="userbaseservice2" />
+        <module name="userbase_service_2" />
+        <module name="userbase_service_1" />
+        <module name="security_service_1" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="gateway_service_1" options="-parameters" />
+      <module name="gatewayservice1" options="-parameters" />
+      <module name="security_service_1" options="-parameters" />
+      <module name="securityservice1" options="-parameters" />
+      <module name="userbase_service_1" options="-parameters" />
+      <module name="userbase_service_2" options="-parameters" />
+      <module name="userbaseservice" options="-parameters" />
+      <module name="userbaseservice1" options="-parameters" />
+      <module name="userbaseservice2" options="-parameters" />
+    </option>
+  </component>
+</project>

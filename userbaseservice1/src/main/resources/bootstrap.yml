@@ -1,0 +1,52 @@
+server:
+  port: 8801
+spring:
+  profiles:
+    active: native
+  application:
+    name: UserBaseService1
+  banner:
+    image:
+      invert: true
+  devtools:
+    livereload:
+      enabled: true
+      port: 35279
+    restart:
+      additional-paths: src/main
+      enabled: true
+  cloud:
+    consul:
+      host: 192.168.1.189
+      port: 8500
+      discovery:
+        enabled: true
+        instance-id: ${spring.application.name}
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://192.168.1.189:3306/sc_platform_20200904_userbaseservice?serverTimezone=UTC&useUnicode=true&charactEncoding=utf8&characterSetResults=utf8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: admin
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    restart:
+      enabled: true
+    shutdown:
+      enabled: true
+    health:
+      show-details: always
+      enabled: true
+
+logging:
+  level:
+    root: error
+    com.cn: debug
